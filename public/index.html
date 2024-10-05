@@ -10,7 +10,7 @@
 
 <body class="bg-gray-100">
   <!-- app bar -->
-  <div class="flex items-center justify-between mt-10 px-4 mb-6">
+  <div class="flex md:hidden items-center justify-between mt-10 px-4 mb-6">
     <p>logo</p>
     <p class="text-2xl text-slate-800 font-bold">ساعت هوشمند</p>
     <div class="bg-stone-50 p-2 rounded-md shadow-lg">
@@ -21,9 +21,8 @@
       </svg>
     </div>
   </div>
-
-  <!-- sort - search -->
-  <div class="flex items-center justify-between px-4 gap-x-4">
+  <!-- filter - sort mobile section -->
+  <div class="flex md:hidden items-center justify-between px-4 gap-x-4 mb-9">
     <div class="w-1/2 bg-stone-50 text-slate-800 rounded-md py-2 px-4 flex items-center justify-around">
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-orange-600" fill="none" viewBox="0 0 24 24"
@@ -46,6 +45,64 @@
     </div>
   </div>
 
+  <!-- product section -->
+  <div x-data="{
+    products : [
+    {id: 1, title: 'ساعت هوشمند اپل سری 6', price: '۳۳,۴۵۰,۰۰۰ تومان'},
+    {id: 2, title: 'ساعت هوشمند اپل سری 6', price: '۳۳,۴۵۰,۰۰۰ تومان'},
+    {id: 3, title: 'ساعت هوشمند اپل سری 6', price: '۳۳,۴۵۰,۰۰۰ تومان'},
+    {id: 4, title: 'ساعت هوشمند اپل سری 6', price: '۳۳,۴۵۰,۰۰۰ تومان'},
+    {id: 5, title: 'ساعت هوشمند اپل سری 6', price: '۳۳,۴۵۰,۰۰۰ تومان'},
+    {id: 6, title: 'ساعت هوشمند اپل سری 6', price: '۳۳,۴۵۰,۰۰۰ تومان'}
+    ]
+  }" class="grid gap-x-2 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4 sm:gap-x-4 md:gap-x-8 md:gap-y-10">
+
+    <!-- dingle product -->
+    <template x-for="product in products" :key="product.id">
+      <div class="bg-stone-50 p-2 rounded-lg shadow-md">
+        <div class="bg-slate-200 rounded-lg mb-3">
+          <img src="../assets/images/apple-watch-7.png" alt="apple watch">
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-slate-200 text-sm md:text-base">اپل</span>
+            <div x-data="{ color: 'pink' }" class="flex items-center">
+              <div @click=" color = 'pink' " :class=" color === 'pink' ? 'ring-2 ring-pink-200' : '' "
+                class="w-6 h-6 sm:w-8 sm:h-8 bg-pink-400 rounded-full cursor-pointer border-2 border-white flex justify-center items-center">
+                <svg x-show=" color === 'pink' " xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 sm:w-5 sm:h-5 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              </div>
+              <div @click=" color = 'green' " :class=" color === 'green' ? 'ring-2 ring-green-200' : '' "
+                class="w-6 h-6 sm:w-8 sm:h-8 bg-green-400 rounded-full cursor-pointer border-2  border-white flex justify-center items-center -mr-1.5">
+                <svg x-show=" color === 'green' " xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 sm:w-5 sm:h-5 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              </div>
+              <div @click=" color = 'blue' " :class=" color === 'blue' ? 'ring-2 ring-blue-200' : '' "
+                class="w-6 h-6 sm:w-8 sm:h-8 bg-blue-400 rounded-full cursor-pointer border-2  border-white flex justify-center items-center -mr-1.5">
+                <svg x-show=" color === 'blue' " xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 sm:w-5 sm:h-5 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p x-text="product.title" class="text-slate-800 text-xs font-bold mb-2 md:text-base"></p>
+          <p x-text="product.price" class="text-left text-orange-600 text-sm font-medium mb-3"></p>
+          <hr>
+          <button class="w-full font-bold text-orange-600 py-1 md:text-lg">مشاهده و سفارش</button>
+        </div>
+      </div>
+    </template>
+  </div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 
 </html>
