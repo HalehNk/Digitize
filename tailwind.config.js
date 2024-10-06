@@ -6,5 +6,9 @@ module.exports = {
       fontFamily: { sans: ["vazir"] },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms")({
+      strategy: "class",
+    }),
+  ],
 };
