@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digitize App - Shop</title>
   <link rel="stylesheet" href="./build/tailwind.css">
+  <script defer src=" https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="bg-gray-100">
@@ -97,12 +98,11 @@
       </div>
     </div>
   </nav>
-
   <!-- content -->
   <div class="grid grid-cols-12 md:grid-rows-[55px_minmax(500px,_1fr)] md:gap-8 md:px-6 2xl:max-w-screen-2xl mx-auto">
     <!-- sidebar -->
     <div class="hidden md:block col-span-4 lg:col-span-3 row-span-2">
-      <div class="bg-white p-5 rounded-xl max-h-[calc(100vh_-_140px)] overflow-auto sticky top-28">
+      <div class="bg-stone-50 p-5 rounded-xl max-h-[calc(100vh_-_140px)] overflow-auto sticky top-28">
         <!-- categories -->
         <div class="mb-7">
           <p class="text-orange-500 text-xl font-bold mb-3">دسته بندی</p>
@@ -293,7 +293,7 @@
     <!-- sort section -->
     <div class="hidden md:block col-span-8 lg:col-span-9">
       <div x-data="{ sort: 1, activeClass: 'text-slate-800 font-bold' }"
-        class="bg-white px-4 flex items-center gap-x-4 text-gray-400 rounded-lg">
+        class="bg-stone-50 px-4 flex items-center gap-x-4 text-gray-400 rounded-lg">
         <div class="bg-orange-100 p-1 rounded-md">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-orange-600" fill="none" viewBox="0 0 24 24"
             stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -382,7 +382,7 @@
 
   <!-- bottom nav mobile -->
   <div class="md:hidden mt-28">
-    <nav class="shadow-[0_-4px_8px_0_rgba(0,0,0,0.15)] bg-white w-full rounded-t-lg fixed bottom-0 left-0 right-0">
+    <nav class="shadow-[0_-4px_8px_0_rgba(0,0,0,0.15)] bg-stone-50 w-full rounded-t-lg fixed bottom-0 left-0 right-0">
       <ul x-data="{ selectedTab: 1, activeClass: 'text-slate-700 font-bold transition-all duration-500' }"
         class="flex items-center justify-evenly">
         <li @click=" selectedTab = 1 ">
@@ -438,8 +438,6 @@
       </ul>
     </nav>
   </div>
-
-  <script defer src=" https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 
 </html>
